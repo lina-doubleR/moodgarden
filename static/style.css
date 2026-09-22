@@ -1,0 +1,17 @@
+body {
+    background-color: #fdf2f8;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    text-align: center;
+    padding-top: 60px;
+    color: #4a2545;
+}
+
+h1 {
+    color: #d6336c;
+    font-size: 2.2em;
+}
+
+p {
+    color: #8a5a75;
+    font-size: 1.1em;
+}
