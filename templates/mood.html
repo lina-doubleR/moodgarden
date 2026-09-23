@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Как ты сегодня? — Mood Garden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Как ты себя сегодня чувствуешь?</h1>
+
+    <form method="POST">
+        <button type="submit" name="mood" value="ромашка">🌼 Спокойствие</button>
+        <button type="submit" name="mood" value="роза">🌹 Радость</button>
+        <button type="submit" name="mood" value="увядший цветок">🥀 Грусть</button>
+    </form>
+</body>
+</html>
