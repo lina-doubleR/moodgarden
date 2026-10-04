@@ -25,3 +25,11 @@ def add_mood(mood, date):
     cursor.execute("INSERT INTO moods (mood, date) VALUES (?, ?)", (mood, date))
     connection.commit()
     connection.close()
+
+def get_all_moods():
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM moods ORDER BY id DESC")
+    rows = cursor.fetchall()
+    connection.close()
+    return rows

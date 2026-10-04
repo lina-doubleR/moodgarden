@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>История настроений — Mood Garden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Твоя история настроений 🌱</h1>
+
+    <ul>
+        {% for entry in moods %}
+        <li>{{ entry[2] }} — {{ entry[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
