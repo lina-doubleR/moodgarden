@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Как ты сегодня? — Mood Garden</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <h1>Как ты себя сегодня чувствуешь???</h1>
 
@@ -13,5 +15,12 @@
         <button type="submit" name="mood" value="розочка">🌹 Радость</button>
         <button type="submit" name="mood" value="увядший цветочек">🥀 Грусть</button>
     </form>
+
+    <nav>
+        <a href="{{ url_for('home') }}">На главную</a>
+        <a href="{{ url_for('history') }}">Моя история настроений</a>
+    </nav>
+
 </body>
+
 </html>

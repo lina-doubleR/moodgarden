@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Mood Garden 🌸</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <h1>Привет! Это Mood Garden 🌸</h1>
-    <p>Здесь скоро появится чо-нибудь клянусььььь</p>
+    <p>Здесь скоро появится твой цветочный дневник настроения.</p>
+
+    <nav>
+        <a href="{{ url_for('mood') }}">Отметить настроение</a>
+        <a href="{{ url_for('history') }}">Моя история настроений</a>
+    </nav>
 </body>
+
 </html>
