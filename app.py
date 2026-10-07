@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from database import init_db, add_mood
 from datetime import date
 from database import init_db, add_mood, get_all_moods
+from database import init_db, add_mood, get_all_moods, get_mood_stats
 
 app = Flask(__name__)
 init_db()
@@ -24,6 +25,11 @@ def mood():
 def history():
     all_moods = get_all_moods()
     return render_template("history.html", moods=all_moods)
+
+@app.route("/stats")
+def stats():
+    mood_stats = get_mood_stats()
+    return render_template("stats.html", stats=mood_stats)
 
 if __name__ == "__main__":
     app.run(debug=True)

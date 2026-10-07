@@ -33,3 +33,11 @@ def get_all_moods():
     rows = cursor.fetchall()
     connection.close()
     return rows
+
+def get_mood_stats():
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT mood, COUNT(*) FROM moods GROUP BY mood")
+    rows = cursor.fetchall()
+    connection.close()
+    return rows

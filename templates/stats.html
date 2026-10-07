@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
-    <title>Mood Garden 🌸</title>
+    <title>Статистика — Mood Garden</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-    <h1>Привет! Это Mood Garden 🌸</h1>
-    <p>Здесь скоро появится твой цветочный дневник настроения.</p>
+    <h1>Статистика настроений 📊</h1>
+
+    <ul>
+        {% for mood_name, count in stats %}
+            <li>{{ mood_name }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
 
     <nav>
+        <a href="{{ url_for('home') }}">На главную</a>
         <a href="{{ url_for('mood') }}">Отметить настроение</a>
         <a href="{{ url_for('history') }}">Моя история настроений</a>
-        <a href="{{ url_for('stats') }}">Статистика</a>
     </nav>
 </body>
-
 </html>
