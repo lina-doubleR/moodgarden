@@ -41,3 +41,7 @@ def get_mood_stats():
     rows = cursor.fetchall()
     connection.close()
     return rows
+
+def get_recent_moods(limit=7):
+    all_moods = get_all_moods()
+    return all_moods[:limit]

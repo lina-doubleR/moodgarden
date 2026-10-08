@@ -3,6 +3,7 @@ from database import init_db, add_mood
 from datetime import date
 from database import init_db, add_mood, get_all_moods
 from database import init_db, add_mood, get_all_moods, get_mood_stats
+from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods
 
 app = Flask(__name__)
 init_db()
@@ -10,7 +11,8 @@ init_db()
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    recent = get_recent_moods()
+    return render_template("home.html", recent_moods=recent)
 
 
 @app.route("/mood", methods=["GET", "POST"])

@@ -11,6 +11,18 @@
     <h1>Привет! Это Mood Garden 🌸</h1>
     <p>Здесь скоро появится твой цветочный дневник настроения.</p>
 
+    <div class="garden">
+        {% for entry in recent_moods %}
+            {% if entry[1] == "ромашечка" %}
+                <span class="flower">🌼</span>
+            {% elif entry[1] == "розочка" %}
+                <span class="flower">🌹</span>
+            {% else %}
+                <span class="flower">🥀</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+
     <nav>
         <a href="{{ url_for('mood') }}">Отметить настроение</a>
         <a href="{{ url_for('history') }}">Моя история настроений</a>
