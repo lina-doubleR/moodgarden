@@ -4,6 +4,7 @@ from datetime import date
 from database import init_db, add_mood, get_all_moods
 from database import init_db, add_mood, get_all_moods, get_mood_stats
 from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods
+from flask import Flask, render_template, request, redirect, url_for, make_response
 
 app = Flask(__name__)
 init_db()
@@ -32,6 +33,17 @@ def history():
 def stats():
     mood_stats = get_mood_stats()
     return render_template("stats.html", stats=mood_stats)
+
+@app.route("/set_theme/<theme_name>")
+def set_theme(theme_name):
+    response = make_response(redirect(url_for("home")))
+    response.set_cookie("theme", theme_name)
+    return response
+
+@app.context_processor
+def inject_theme():
+    theme = request.cookies.get("theme", "pink")
+    return dict(theme=theme)
 
 if __name__ == "__main__":
     app.run(debug=True)

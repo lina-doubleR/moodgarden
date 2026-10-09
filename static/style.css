@@ -1,4 +1,4 @@
-body {
+body.pink {
     background-color: #fdf2f8;
     font-family: "Comic Sans MS", "Segoe UI", sans-serif;
     text-align: center;
@@ -6,14 +6,30 @@ body {
     color: #4a2545;
 }
 
-h1 {
+body.pink h1 {
     color: #d6336c;
     font-size: 2.2em;
 }
 
-p {
+body.pink p {
     color: #8a5a75;
     font-size: 1.1em;
+}
+
+body.lavender {
+    background-color: #f3effa;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    text-align: center;
+    padding-top: 60px;
+    color: #3d2a52;
+}
+
+body.lavender h1 {
+    color: #7c4dc4;
+}
+
+body.lavender p {
+    color: #6b5a85;
 }
 
 .mood-calm {

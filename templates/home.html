@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
+<body class="{{ theme }}">
     <h1>Привет! Это Mood Garden 🌸</h1>
     <p>Здесь скоро появится твой цветочный дневник настроения.</p>
 
@@ -27,6 +27,8 @@
         <a href="{{ url_for('mood') }}">Отметить настроение</a>
         <a href="{{ url_for('history') }}">Моя история настроений</a>
         <a href="{{ url_for('stats') }}">Статистика</a>
+        <a href="{{ url_for('set_theme', theme_name='pink') }}">Розовая тема</a>
+        <a href="{{ url_for('set_theme', theme_name='lavender') }}">Лавандовая тема</a>
     </nav>
 </body>
 
