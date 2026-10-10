@@ -19,10 +19,10 @@ def init_db():
     connection.commit()
     connection.close()
 
-def add_mood(mood, date):
+def add_mood(mood, date, note):
     connection = get_connection()
     cursor = connection.cursor()
-    cursor.execute("INSERT INTO moods (mood, date) VALUES (?, ?)", (mood, date))
+    cursor.execute("INSERT INTO moods (mood, date, note) VALUES (?, ?, ?)", (mood, date, note))
     connection.commit()
     connection.close()
 

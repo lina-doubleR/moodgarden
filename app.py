@@ -20,8 +20,9 @@ def home():
 def mood():
     if request.method == "POST":
         selected_mood = request.form.get("mood")
+        note = request.form.get("note")
         today = str(date.today())
-        add_mood(selected_mood, today)
+        add_mood(selected_mood, today, note)
     return render_template("mood.html")
 
 @app.route("/history")

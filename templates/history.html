@@ -12,13 +12,19 @@
 
     <ul>
         {% for entry in moods %}
-        {% if entry[1] == "ромашечка" %}
-        <li class="mood-calm">{{ entry[2] }} — {{ entry[1] }} 🌼</li>
-        {% elif entry[1] == "розочка" %}
-        <li class="mood-happy">{{ entry[2] }} — {{ entry[1] }} 🌹</li>
-        {% else %}
-        <li class="mood-sad">{{ entry[2] }} — {{ entry[1] }} 🥀</li>
-        {% endif %}
+            {% if entry[1] == "ромашечка" %}
+                <li class="mood-calm">{{ entry[2] }} — {{ entry[1] }} 🌼
+                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                </li>
+            {% elif entry[1] == "розочка" %}
+                <li class="mood-happy">{{ entry[2] }} — {{ entry[1] }} 🌹
+                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                </li>
+            {% else %}
+                <li class="mood-sad">{{ entry[2] }} — {{ entry[1] }} 🥀
+                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 
