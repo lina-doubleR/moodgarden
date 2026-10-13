@@ -1,10 +1,6 @@
-from flask import Flask, render_template, request
-from database import init_db, add_mood
 from datetime import date
-from database import init_db, add_mood, get_all_moods
-from database import init_db, add_mood, get_all_moods, get_mood_stats
-from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf
+from flask import Flask, render_template, request, redirect, url_for, make_response, send_file
 
 app = Flask(__name__)
 init_db()
@@ -40,6 +36,11 @@ def set_theme(theme_name):
     response = make_response(redirect(url_for("home")))
     response.set_cookie("theme", theme_name)
     return response
+
+@app.route("/download_pdf")
+def download_pdf():
+    create_pdf()
+    return send_file("history.pdf", as_attachment=True)
 
 @app.context_processor
 def inject_theme():

@@ -1,5 +1,5 @@
 import sqlite3
-
+from fpdf import FPDF
 
 def get_connection():
     connection = sqlite3.connect("moodgarden.db")
@@ -45,3 +45,20 @@ def get_mood_stats():
 def get_recent_moods(limit=7):
     all_moods = get_all_moods()
     return all_moods[:limit]
+
+def create_pdf():
+    moods = get_all_moods()
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.add_font("DejaVu", "", "DejaVuSans.ttf")
+    pdf.set_font("DejaVu", size=14)
+    pdf.cell(0, 10, "Mood Garden - дневник настроений", ln=True)
+    pdf.ln(5)
+
+    pdf.set_font("DejaVu", size=11)
+    for entry in moods:
+        line = f"{entry[2]} - {entry[1]}"
+        pdf.cell(0, 8, line, ln=True)
+
+    pdf.output("history.pdf")
