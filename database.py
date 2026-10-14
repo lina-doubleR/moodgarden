@@ -1,5 +1,6 @@
 import sqlite3
 from fpdf import FPDF
+from datetime import date
 
 def get_connection():
     connection = sqlite3.connect("moodgarden.db")
@@ -62,3 +63,12 @@ def create_pdf():
         pdf.cell(0, 8, line, ln=True)
 
     pdf.output("history.pdf")
+
+def mood_logged_today():
+    today = str(date.today())
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM moods WHERE date = ?", (today,))
+    result = cursor.fetchone()
+    connection.close()
+    return result is not None

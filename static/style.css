@@ -67,3 +67,20 @@ body.lavender p {
 .flower {
     margin: 0 5px;
 }
+
+.reminder {
+    font-size: 1.1em;
+    padding: 12px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.reminder-missing {
+    background-color: #ffe4e6;
+    color: #9f1239;
+}
+
+.reminder-done {
+    background-color: #dcfce7;
+    color: #166534;
+}

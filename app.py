@@ -1,5 +1,5 @@
 from datetime import date
-from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf
+from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf, mood_logged_today
 from flask import Flask, render_template, request, redirect, url_for, make_response, send_file
 
 app = Flask(__name__)
@@ -9,7 +9,8 @@ init_db()
 @app.route("/")
 def home():
     recent = get_recent_moods()
-    return render_template("home.html", recent_moods=recent)
+    logged_today = mood_logged_today()
+    return render_template("home.html", recent_moods=recent, logged_today=logged_today)
 
 
 @app.route("/mood", methods=["GET", "POST"])

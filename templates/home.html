@@ -11,6 +11,12 @@
     <h1>Привет! Это Mood Garden 🌸</h1>
     <p>Здесь скоро появится твой цветочный дневник настроения.</p>
 
+    {% if logged_today %}
+        <p class="reminder reminder-done">Ты уже отметила своё настроение сегодня ✅</p>
+    {% else %}
+        <p class="reminder reminder-missing">Ты ещё не отметила своё настроение сегодня! 🌸</p>
+    {% endif %}
+
     <div class="garden">
         {% for entry in recent_moods %}
             {% if entry[1] == "ромашечка" %}
