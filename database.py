@@ -72,3 +72,10 @@ def mood_logged_today():
     result = cursor.fetchone()
     connection.close()
     return result is not None
+
+def delete_mood(mood_id):
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute("DELETE FROM moods WHERE id = ?", (mood_id,))
+    connection.commit()
+    connection.close()

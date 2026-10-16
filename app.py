@@ -1,5 +1,5 @@
 from datetime import date
-from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf, mood_logged_today
+from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf, mood_logged_today, delete_mood
 from flask import Flask, render_template, request, redirect, url_for, make_response, send_file
 
 app = Flask(__name__)
@@ -42,6 +42,11 @@ def set_theme(theme_name):
 def download_pdf():
     create_pdf()
     return send_file("history.pdf", as_attachment=True)
+
+@app.route("/delete/<int:mood_id>")
+def delete(mood_id):
+    delete_mood(mood_id)
+    return redirect(url_for("history"))
 
 @app.context_processor
 def inject_theme():

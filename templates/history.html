@@ -15,14 +15,17 @@
             {% if entry[1] == "ромашечка" %}
                 <li class="mood-calm">{{ entry[2] }} — {{ entry[1] }} 🌼
                     {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
                 </li>
             {% elif entry[1] == "розочка" %}
                 <li class="mood-happy">{{ entry[2] }} — {{ entry[1] }} 🌹
                     {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
                 </li>
             {% else %}
                 <li class="mood-sad">{{ entry[2] }} — {{ entry[1] }} 🥀
                     {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
                 </li>
             {% endif %}
         {% endfor %}
