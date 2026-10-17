@@ -1,6 +1,10 @@
 import sqlite3
 from fpdf import FPDF
 from datetime import date
+import matplotlib
+import matplotlib.pyplot as plt
+
+matplotlib.use("Agg")
 
 def get_connection():
     connection = sqlite3.connect("moodgarden.db")
@@ -79,3 +83,16 @@ def delete_mood(mood_id):
     cursor.execute("DELETE FROM moods WHERE id = ?", (mood_id,))
     connection.commit()
     connection.close()
+
+def create_chart():
+    stats = get_mood_stats()
+
+    names = [row[0] for row in stats]
+    counts = [row[1] for row in stats]
+
+    plt.figure()
+    plt.bar(names, counts, color=["#fbbf24", "#f472b6", "#9ca3af"])
+    plt.title("Настроения")
+    plt.ylabel("Количество раз")
+    plt.savefig("static/chart.png")
+    plt.close()

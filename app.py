@@ -1,5 +1,5 @@
 from datetime import date
-from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf, mood_logged_today, delete_mood
+from database import init_db, add_mood, get_all_moods, get_mood_stats, get_recent_moods, create_pdf, mood_logged_today, delete_mood, create_chart
 from flask import Flask, render_template, request, redirect, url_for, make_response, send_file
 
 app = Flask(__name__)
@@ -30,6 +30,7 @@ def history():
 @app.route("/stats")
 def stats():
     mood_stats = get_mood_stats()
+    create_chart()
     return render_template("stats.html", stats=mood_stats)
 
 @app.route("/set_theme/<theme_name>")
