@@ -39,6 +39,13 @@ def get_all_moods():
     connection.close()
     return rows
 
+def get_moods_dict():
+    all_moods = get_all_moods()
+    moods_by_date = {}
+    for entry in all_moods:
+        moods_by_date[entry[2]] = entry[1]
+    return moods_by_date
+
 def get_mood_stats():
     connection = get_connection()
     cursor = connection.cursor()

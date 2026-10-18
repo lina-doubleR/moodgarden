@@ -84,3 +84,16 @@ body.lavender p {
     background-color: #dcfce7;
     color: #166534;
 }
+
+.calendar-grid {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.calendar-grid th, .calendar-grid td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1.3em;
+}
