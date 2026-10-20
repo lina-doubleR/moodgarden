@@ -64,14 +64,33 @@ def create_pdf():
     pdf = FPDF()
     pdf.add_page()
     pdf.add_font("DejaVu", "", "DejaVuSans.ttf")
-    pdf.set_font("DejaVu", size=14)
-    pdf.cell(0, 10, "Mood Garden - дневник настроений", ln=True)
-    pdf.ln(5)
 
-    pdf.set_font("DejaVu", size=11)
+    pdf.set_font("DejaVu", size=20)
+    pdf.set_text_color(214, 51, 108)
+    pdf.cell(0, 15, "Mood Garden", ln=True, align="C")
+
+    pdf.set_font("DejaVu", size=12)
+    pdf.set_text_color(100, 100, 100)
+    pdf.cell(0, 10, "Дневник настроений", ln=True, align="C")
+    pdf.ln(10)
+
     for entry in moods:
-        line = f"{entry[2]} - {entry[1]}"
-        pdf.cell(0, 8, line, ln=True)
+        if entry[1] == "ромашечка":
+            pdf.set_text_color(217, 119, 6)
+        elif entry[1] == "розочка":
+            pdf.set_text_color(214, 51, 108)
+        else:
+            pdf.set_text_color(107, 114, 128)
+
+        pdf.set_font("DejaVu", size=12)
+        pdf.cell(0, 8, f"{entry[2]} — {entry[1]}", ln=True)
+
+        if entry[3]:
+            pdf.set_text_color(130, 130, 130)
+            pdf.set_font("DejaVu", size=10)
+            pdf.cell(0, 6, entry[3], ln=True)
+
+        pdf.ln(3)
 
     pdf.output("history.pdf")
 
