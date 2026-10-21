@@ -97,3 +97,29 @@ body.lavender p {
     border: 1px solid #ddd;
     font-size: 1.3em;
 }
+
+nav {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #d6336c;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(214, 51, 108, 0.2);
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #d6336c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(214, 51, 108, 0.35);
+}
