@@ -87,5 +87,3 @@ if __name__ == "__main__":
 # лололололололол
 # fjfslfasfsa
 # kkfkfkfkf
-# dslafdsfhslafsa
-# алалалавыадыа
