@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Статистика — Mood Garden</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Статистика — Mood Garden</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
 
-<body class="{{ theme }}">
-    <h1>Статистика настроений 📊</h1>
+    <body class="{{ theme }}">
+        <div class="card">
+            <h1>Статистика настроений 📊</h1>
 
-    <ul>
-        {% for mood_name, count in stats %}
-            <li>{{ mood_name }}: {{ count }}</li>
-        {% endfor %}
-    </ul>
+            <ul>
+                {% for mood_name, count in stats %}
+                    <li>{{ mood_name }}: {{ count }}</li>
+                {% endfor %}
+            </ul>
 
-    <img src="{{ url_for('static', filename='chart.png') }}" alt="График настроений">
+            <img src="{{ url_for('static', filename='chart.png') }}" alt="График настроений">
 
-    <nav>
-        <a href="{{ url_for('home') }}">На главную</a>
-        <a href="{{ url_for('mood') }}">Отметить настроение</a>
-        <a href="{{ url_for('history') }}">Моя история настроений</a>
-        <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
-    </nav>
-</body>
+            <nav>
+                <a href="{{ url_for('home') }}">На главную</a>
+                <a href="{{ url_for('mood') }}">Отметить настроение</a>
+                <a href="{{ url_for('history') }}">Моя история настроений</a>
+                <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
+            </nav>
+        </div>
+    </body>
 </html>

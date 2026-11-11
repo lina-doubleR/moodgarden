@@ -8,37 +8,39 @@
 </head>
 
 <body class="{{ theme }}">
-    <h1>Твоя история настроений 🌱</h1>
+    <div class="card">
+        <h1>Твоя история настроений 🌱</h1>
 
-    <ul>
-        {% for entry in moods %}
-            {% if entry[1] == "ромашечка" %}
-                <li class="mood-calm">{{ entry[2] }} — {{ entry[1] }} 🌼
-                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
-                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
-                </li>
-            {% elif entry[1] == "розочка" %}
-                <li class="mood-happy">{{ entry[2] }} — {{ entry[1] }} 🌹
-                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
-                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
-                </li>
-            {% else %}
-                <li class="mood-sad">{{ entry[2] }} — {{ entry[1] }} 🥀
-                    {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
-                    <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+        <ul>
+            {% for entry in moods %}
+                {% if entry[1] == "ромашечка" %}
+                    <li class="mood-calm">{{ entry[2] }} — {{ entry[1] }} 🌼
+                        {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                        <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
+                    </li>
+                {% elif entry[1] == "розочка" %}
+                    <li class="mood-happy">{{ entry[2] }} — {{ entry[1] }} 🌹
+                        {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                        <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
+                    </li>
+                {% else %}
+                    <li class="mood-sad">{{ entry[2] }} — {{ entry[1] }} 🥀
+                        {% if entry[3] %}<br><em>{{ entry[3] }}</em>{% endif %}
+                        <a href="{{ url_for('delete', mood_id=entry[0]) }}">❌</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
 
-    <nav>
-        <a href="{{ url_for('home') }}">На главную</a>
-        <a href="{{ url_for('mood') }}">Отметить настроение</a>
-        <a href="{{ url_for('stats') }}">Статистика</a>
-        <a href="{{ url_for('download_pdf') }}">Скачать PDF файл</a>
-        <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
-    </nav>
+        <nav>
+            <a href="{{ url_for('home') }}">На главную</a>
+            <a href="{{ url_for('mood') }}">Отметить настроение</a>
+            <a href="{{ url_for('stats') }}">Статистика</a>
+            <a href="{{ url_for('download_pdf') }}">Скачать PDF файл</a>
+            <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
+        </nav>
 
+    </div>
 </body>
 
 </html>

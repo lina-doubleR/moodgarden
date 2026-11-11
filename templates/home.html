@@ -8,35 +8,37 @@
 </head>
 
 <body class="{{ theme }}">
-    <h1>Привет! Это Mood Garden 🌸</h1>
-    <p>Здесь скоро появится твой цветочный дневник настроения.</p>
+    <div class="card">
+        <h1>Привет! Это Mood Garden 🌸</h1>
+        <p>Здесь скоро появится твой цветочный дневник настроения.</p>
 
-    {% if logged_today %}
-        <p class="reminder reminder-done">Ты уже отметила своё настроение сегодня ✅</p>
-    {% else %}
-        <p class="reminder reminder-missing">Ты ещё не отметила своё настроение сегодня! 🌸</p>
-    {% endif %}
+        {% if logged_today %}
+            <p class="reminder reminder-done">Ты уже отметила своё настроение сегодня ✅</p>
+        {% else %}
+            <p class="reminder reminder-missing">Ты ещё не отметила своё настроение сегодня! 🌸</p>
+        {% endif %}
 
-    <div class="garden">
-        {% for entry in recent_moods %}
-            {% if entry[1] == "ромашечка" %}
-                <span class="flower">🌼</span>
-            {% elif entry[1] == "розочка" %}
-                <span class="flower">🌹</span>
-            {% else %}
-                <span class="flower">🥀</span>
-            {% endif %}
-        {% endfor %}
+        <div class="garden">
+            {% for entry in recent_moods %}
+                {% if entry[1] == "ромашечка" %}
+                    <span class="flower">🌼</span>
+                {% elif entry[1] == "розочка" %}
+                    <span class="flower">🌹</span>
+                {% else %}
+                    <span class="flower">🥀</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <nav>
+            <a href="{{ url_for('mood') }}">Отметить настроение</a>
+            <a href="{{ url_for('history') }}">Моя история настроений</a>
+            <a href="{{ url_for('stats') }}">Статистика</a>
+            <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
+            <a href="{{ url_for('set_theme', theme_name='pink') }}">Розовая тема</a>
+            <a href="{{ url_for('set_theme', theme_name='lavender') }}">Лавандовая тема</a>
+        </nav>
     </div>
-
-    <nav>
-        <a href="{{ url_for('mood') }}">Отметить настроение</a>
-        <a href="{{ url_for('history') }}">Моя история настроений</a>
-        <a href="{{ url_for('stats') }}">Статистика</a>
-        <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
-        <a href="{{ url_for('set_theme', theme_name='pink') }}">Розовая тема</a>
-        <a href="{{ url_for('set_theme', theme_name='lavender') }}">Лавандовая тема</a>
-    </nav>
 </body>
 
 </html>

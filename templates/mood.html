@@ -8,24 +8,25 @@
 </head>
 
 <body class="{{ theme }}">
-    <h1>Как ты себя сегодня чувствуешь???</h1>
+    <div class="card">
+        <h1>Как ты себя сегодня чувствуешь???</h1>
 
-    <form method="POST">
         <form method="POST">
-            <textarea name="note" placeholder="Напиши пару слов о своём дне..." rows="3"></textarea>
-                <br>
-        <button type="submit" name="mood" value="ромaшечка">🌼 Спокойствие</button>
-        <button type="submit" name="mood" value="розочка">🌹 Радость</button>
-        <button type="submit" name="mood" value="увядший цветочек">🥀 Грусть</button>
-    </form>
-    
-    <nav>
-        <a href="{{ url_for('home') }}">На главную</a>
-        <a href="{{ url_for('history') }}">Моя история настроений</a>
-        <a href="{{ url_for('stats') }}">Статистика</a>
-        <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
-    </nav>
-
+            <form method="POST">
+                <textarea name="note" placeholder="Напиши пару слов о своём дне..." rows="3"></textarea>
+                    <br>
+            <button type="submit" name="mood" value="ромaшечка">🌼 Спокойствие</button>
+            <button type="submit" name="mood" value="розочка">🌹 Радость</button>
+            <button type="submit" name="mood" value="увядший цветочек">🥀 Грусть</button>
+        </form>
+        
+        <nav>
+            <a href="{{ url_for('home') }}">На главную</a>
+            <a href="{{ url_for('history') }}">Моя история настроений</a>
+            <a href="{{ url_for('stats') }}">Статистика</a>
+            <a href="{{ url_for('calendar_view') }}">Календарь настроений</a>
+        </nav>
+    </div>
 </body>
 
 </html>
